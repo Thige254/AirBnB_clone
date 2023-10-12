@@ -1,0 +1,12 @@
+models/__pycache__/*.pyc
+*/__pycache__
+tests/test_models/test_engine/__pycache__/test_file_storage.cpython-310.pyc
+tests/test_models/test_engine/__pycache__/__init__.cpython-310.pyc
+tests/test_models/__pycache__/test_base_model.cpython-310.pyc
+tests/test_models/__pycache__/__init__.cpython-310.pyc
+tests/__pycache__/test_console.cpython-310.pyc
+tests/__pycache__/__init__.cpython-310.pyc
+models/engine/__pycache__/file_storage.cpython-310.pyc
+models/engine/__pycache__/__init__.cpython-310.pyc
+models/__pycache__/base_model.cpython-310.pyc
+models/__pycache__/__init__.cpython-310.pyc

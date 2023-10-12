@@ -3,6 +3,7 @@
 FileStorage class for AirBnB project
 """
 import json
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -12,6 +13,7 @@ class FileStorage:
     """
     __file_path = "file.json"
     __objects = {}
+    __class_dict = {"BaseModel": BaseModel}
 
     def all(self):
         """Returns the dictionary __objects"""
@@ -24,7 +26,7 @@ class FileStorage:
 
     def save(self):
         """Serializes __objects to the JSON file (path: __file_path)"""
-        with open(FileStorage.__file_path, 'w', encoding='utf-8') as f:
+        with open(self.__file_path, 'w', encoding='utf-8') as f:
             obj_dict = {}
             for key, value in FileStorage.__objects.items():
                 obj_dict[key] = value.to_dict()
@@ -37,8 +39,11 @@ class FileStorage:
                 obj_dict = json.load(f)
                 for key, value in obj_dict.items():
                     class_name = value["__class__"]
-                    cls = eval(class_name)  # Convert string to class
-                    instance = cls(**value)  # Create a new instance
-                    FileStorage.__objects[key] = instance
+                    # Convert string to class
+                    cls = FileStorage.__class_dict.get(class_name)
+                    if cls:
+                        # Create a new instance
+                        instance = cls(**value)
+                        FileStorage.__objects[key] = instance
         except FileNotFoundError:
             pass
