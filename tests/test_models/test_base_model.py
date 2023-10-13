@@ -4,6 +4,7 @@ import unittest
 from datetime import datetime
 from models.base_model import BaseModel
 
+
 # class TestBaseModel that inherits from unittest.TestCase
 class TestBaseModel(unittest.TestCase):
     """Tests for the BaseModel class"""
@@ -20,8 +21,16 @@ class TestBaseModel(unittest.TestCase):
         """Test that id is correctly created and is a string"""
         self.assertIsInstance(self.instance.id, str)
 
+    def test_unique_ids(self):
+        """Test that id is correctly created and is a string"""
+        dummy = BaseModel()
+        self.assertIsNot(self.instance, dummy)
+
     def test_datetime_creation(self):
-        """Test that created_at and updated_at are created and are datetime objects"""
+        """
+        Test that created_at and updated_at are
+        created and are datetime objects
+        """
         self.assertIsInstance(self.instance.created_at, datetime)
         self.assertIsInstance(self.instance.updated_at, datetime)
 
@@ -35,5 +44,9 @@ class TestBaseModel(unittest.TestCase):
 
     def test_str_method(self):
         """Test the __str__ method of BaseModel"""
-        expected = "[{}] ({}) {}".format(self.instance.__class__.__name__, self.instance.id, self.instance.__dict__)
+        expected = "[{}] ({}) {}".format(
+            self.instance.__class__.__name__,
+            self.instance.id,
+            self.instance.__dict__
+        )
         self.assertEqual(expected, str(self.instance))

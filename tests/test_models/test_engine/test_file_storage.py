@@ -11,10 +11,11 @@ class TestFileStorage(unittest.TestCase):
     def setUp(self):
         """Sets up the test for potential file creation."""
         self.storage = FileStorage()  # Create a new instance of FileStorage for testing
-        self.file_path = "test.json"  # Define the file_path for testing
+        self.file_path = "file.json"  # Changed this line to use "file.json"
         if not os.path.exists(self.file_path):  # If the test file doesn't exist, create an empty one
             with open(self.file_path, 'w', encoding='utf-8') as f:
                 f.write("{}")
+
 
     def tearDown(self):
         """Removes the file after test."""
@@ -37,20 +38,15 @@ class TestFileStorage(unittest.TestCase):
         all_objs = self.storage.all()
         obj_key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.assertTrue(obj_key in all_objs)
-        self.assertTrue(obj_key in self.storage.all())
 
     def test_save(self):
-        """Tests the save method."""
         obj = BaseModel()
         obj_key = "{}.{}".format(obj.__class__.__name__, obj.id)
         self.storage.new(obj)
         self.storage.save()
         with open(self.file_path, "r", encoding="utf-8") as f:
             json_objs = f.read()
-            print(f"Json Objects: {json_objs}")  #see the content of the file after saving
-            print(f"Expected Key: {obj_key}")    # check the key
             self.assertTrue(obj_key in json_objs)
-
 
     def test_reload(self):
         obj = User()
