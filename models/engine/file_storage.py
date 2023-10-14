@@ -3,7 +3,14 @@
 FileStorage class for AirBnB project
 """
 import json
+
+from models.amenity import Amenity
 from models.base_model import BaseModel
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 
 
 class FileStorage:
@@ -13,7 +20,15 @@ class FileStorage:
     """
     __file_path = "file.json"
     __objects = {}
-    __class_dict = {"BaseModel": BaseModel}
+    __class_dict = {
+        "BaseModel": BaseModel,
+        "User": User,
+        "Amenity": Amenity,
+        "City": City,
+        "Place": Place,
+        "State": State,
+        "Review": Review,
+    }
 
     def all(self):
         """Returns the dictionary __objects"""
