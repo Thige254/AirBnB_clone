@@ -1,11 +1,21 @@
 import cmd
+
 from models import storage
+from models.amenity import Amenity
 from models.base_model import BaseModel
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '  # Set a custom prompt
-    classes = ['BaseModel']
+    classes = [
+        'BaseModel', 'User', 'Amenity', 'City',
+        'Place', 'State', 'Review'
+    ]
 
     def do_quit(self, line):
         """Exit the console."""
@@ -110,7 +120,7 @@ class HBNBCommand(cmd.Cmd):
             Ex: $ `update BaseModel 1234-1234-1234 email "aibnb@mail.com"`
         """
         args = line.split()
-        if len(line) > 4:
+        if len(args) >= 4:
             key = "{}.{}".format(args[0], args[1])
             cast = type(eval(args[3]))
             arg3 = args[3]
@@ -132,7 +142,7 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
 
 
-def parse(line):
+def parse(line: str):
     return tuple(line.split())
 
 
