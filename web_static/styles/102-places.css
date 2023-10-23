@@ -1,0 +1,136 @@
+.places {
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.places h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #FF5A5F;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    transition: transform 0.3s;
+}
+
+article:hover {
+    transform: translateY(-10px);
+}
+
+article h2 {
+    font-size: 30px;
+    color: #333;
+}
+
+.price_by_night {
+    font-size: 12px;
+    color: #FFF;
+    background-color: #FF5A5F;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.information {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    padding: 10px 0;
+    margin: 20px 0;
+}
+
+.information > div {
+    text-align: center;
+}
+
+.user, .description, .amenities, .reviews {
+    margin-top: 20px;
+}
+
+.user {
+    font-weight: bold;
+}
+
+.description {
+    font-style: italic;
+    text-align: justify;
+}
+
+.amenities h2, .reviews h2 {
+    font-size: 16px;
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 10px;
+}
+
+.amenities ul, .reviews ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.amenities li, .reviews li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.amenities i {
+    margin-right: 10px;
+    color: #FF5A5F;
+}
+
+.reviews h3 {
+    font-size: 14px;
+    color: #777;
+}
+
+.reviews p {
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: justify;
+}
+
+/* I made some small responsive adjustments */
+@media (max-width: 768px) {
+    .places {
+        justify-content: center;  /* center the articles on smaller screens */
+    }
+    
+    article {
+        width: 100%;
+        max-width: 390px;  /* to limit the width but allow it to be narrower if needed */
+        margin: 10px 0;
+    }
+
+    .places h1 {
+        font-size: 24px;  /* slightly smaller heading for tighter screens */
+        text-align: center;
+    }
+
+    article h2 {
+        font-size: 24px;
+    }
+    
+    .price_by_night {
+        top: -5px;
+        right: -5px;
+    }
+}

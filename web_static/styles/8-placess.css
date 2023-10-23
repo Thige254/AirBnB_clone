@@ -1,0 +1,67 @@
+.places {
+    padding-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.places h1 {
+    font-size: 30px;
+    margin-bottom: 20px; 
+    width: 100%;
+    text-align: left;
+}
+
+article {
+    position: relative;
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #FF5A5F;
+    border-radius: 4px;
+    text-align: center;
+}
+
+article h2 {
+    font-size: 30px;
+}
+.price_by_night {
+    font-size: 12px;  /* I will adjust the font size to fit the content better */
+    color: #FF5A5F;
+    border: 4px solid #FF5A5F;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    position: absolute;
+    top: 10px;  /* adjusted to make the price closer to the top of the article */
+    right: 10px;  /* adjusted this to control the gap from the right side */
+}
+
+
+
+.information {
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.information > div {
+    width: 100px;
+    text-align: center;
+}
+
+.user {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.description {
+    margin: 10px 0;
+}

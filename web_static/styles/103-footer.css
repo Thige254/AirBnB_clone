@@ -1,0 +1,21 @@
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    footer {
+        background-color: #FFFFFF;
+        border-top: 1px solid #DDDDDD;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+footer span {
+    font-weight: bold;
+    color: #777;
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    border-top: 1px solid #CCCCCC;
+    position: relative
+}
